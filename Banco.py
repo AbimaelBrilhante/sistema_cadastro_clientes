@@ -10,11 +10,15 @@ class Banco():
         c = self.conexao.cursor()
 
         c.execute("""create table if not exists clientes (
-                     idcliente integer primary key autoincrement ,
+                     cnpjcpf text primary key  ,                     
                      nome text,
+                     cep text,
+                     endereco text,
+                     numero integer,
+                     bairro text,
+                     cidade text,
+                     estado text,
                      telefone text,
-                     email text,
-                     cliente text,
-                     senha text)""")
+                     email text)""")
         self.conexao.commit()
         c.close()

@@ -35,24 +35,48 @@ class Application:
         self.container7.pack()
         self.container8 = Frame(master)
         self.container8["padx"] = 20
-        self.container8["pady"] = 10
+        self.container8["pady"] = 5
         self.container8.pack()
         self.container9 = Frame(master)
-        self.container9["pady"] = 15
+        self.container9["padx"] = 20
+        self.container9["pady"] = 5
         self.container9.pack()
+        self.container10 = Frame(master)
+        self.container10["padx"] = 20
+        self.container10["pady"] = 5
+        self.container10.pack()
+        self.container11 = Frame(master)
+        self.container11["padx"] = 20
+        self.container11["pady"] = 5
+        self.container11.pack()
+        self.container12 = Frame(master)
+        self.container12["padx"] = 20
+        self.container12["pady"] = 5
+        self.container12.pack()
+        self.container13 = Frame(master)
+        self.container13["padx"] = 20
+        self.container13["pady"] = 5
+        self.container13.pack()
+        self.container14 = Frame(master)
+        self.container14["padx"] = 20
+        self.container14["pady"] = 10
+        self.container14.pack()
+        self.container15 = Frame(master)
+        self.container15["pady"] = 15
+        self.container15.pack()
 
         self.titulo = Label(self.container1, text="Informe os dados :")
         self.titulo["font"] = ("Calibri", "9", "bold")
         self.titulo.pack ()
 
-        self.lblidcliente = Label(self.container2,
-        text="idcliente:", font=self.fonte, width=10)
-        self.lblidcliente.pack(side=LEFT)
+        self.lblcnpjcpf = Label(self.container2,
+        text="CNPJ ou CPF:", font=self.fonte, width=10)
+        self.lblcnpjcpf.pack(side=LEFT)
 
-        self.txtidcliente = Entry(self.container2)
-        self.txtidcliente["width"] = 10
-        self.txtidcliente["font"] = self.fonte
-        self.txtidcliente.pack(side=LEFT)
+        self.txtcnpjcpf = Entry(self.container2)
+        self.txtcnpjcpf["width"] = 10
+        self.txtcnpjcpf["font"] = self.fonte
+        self.txtcnpjcpf.pack(side=LEFT)
 
         self.btnBuscar = Button(self.container2, text="Buscar",
         font=self.fonte, width=10)
@@ -68,59 +92,95 @@ class Application:
         self.txtnome["font"] = self.fonte
         self.txtnome.pack(side=LEFT)
 
-        self.lbltelefone = Label(self.container4, text="Telefone:",
+        self.lblcep = Label(self.container4, text="CEP:",
+        font=self.fonte, width=10)
+        self.lblcep.pack(side=LEFT)
+
+        self.txtcep = Entry(self.container4)
+        self.txtcep["width"] = 25
+        self.txtcep["font"] = self.fonte
+        self.txtcep.pack(side=LEFT)
+
+        self.lblendereco = Label(self.container5, text="Endereco:",
+        font=self.fonte, width=10)
+        self.lblendereco.pack(side=LEFT)
+
+        self.txtendereco = Entry(self.container5)
+        self.txtendereco["width"] = 25
+        self.txtendereco["font"] = self.fonte
+        self.txtendereco.pack(side=LEFT)
+
+        self.lblnumero = Label(self.container6, text="Numero:",
+        font=self.fonte, width=10)
+        self.lblnumero.pack(side=LEFT)
+
+        self.txtnumero = Entry(self.container6)
+        self.txtnumero["width"] = 25
+        self.txtnumero["font"] = self.fonte
+        self.txtnumero.pack(side=LEFT)
+
+        self.lblbairro= Label(self.container7, text="Bairro:",
+        font=self.fonte, width=10)
+        self.lblbairro.pack(side=LEFT)
+
+        self.txtbairro = Entry(self.container7)
+        self.txtbairro["width"] = 25
+        self.txtbairro["font"] = self.fonte
+        self.txtbairro.pack(side=LEFT)
+
+        self.lblcidade= Label(self.container8, text="Cidade:",
+        font=self.fonte, width=10)
+        self.lblcidade.pack(side=LEFT)
+
+        self.txtcidade = Entry(self.container8)
+        self.txtcidade["width"] = 25
+        self.txtcidade["font"] = self.fonte
+        self.txtcidade.pack(side=LEFT)
+
+        self.lblestado = Label(self.container9, text="UF:",
+        font=self.fonte, width=10)
+        self.lblestado.pack(side=LEFT)
+
+        self.txtestado = Entry(self.container9)
+        self.txtestado["width"] = 25
+        self.txtestado["font"] = self.fonte
+        self.txtestado.pack(side=LEFT)
+
+
+        self.lbltelefone= Label(self.container10, text="Telefone:",
         font=self.fonte, width=10)
         self.lbltelefone.pack(side=LEFT)
 
-        self.txttelefone = Entry(self.container4)
+        self.txttelefone = Entry(self.container10)
         self.txttelefone["width"] = 25
         self.txttelefone["font"] = self.fonte
         self.txttelefone.pack(side=LEFT)
 
-        self.lblemail= Label(self.container5, text="E-mail:",
+        self.lblemail= Label(self.container11, text="Email::",
         font=self.fonte, width=10)
         self.lblemail.pack(side=LEFT)
 
-        self.txtemail = Entry(self.container5)
+        self.txtemail = Entry(self.container11)
         self.txtemail["width"] = 25
         self.txtemail["font"] = self.fonte
         self.txtemail.pack(side=LEFT)
 
-        self.lblcliente= Label(self.container6, text="Usuário:",
-        font=self.fonte, width=10)
-        self.lblcliente.pack(side=LEFT)
-
-        self.txtcliente = Entry(self.container6)
-        self.txtcliente["width"] = 25
-        self.txtcliente["font"] = self.fonte
-        self.txtcliente.pack(side=LEFT)
-
-        self.lblsenha= Label(self.container7, text="Senha:",
-        font=self.fonte, width=10)
-        self.lblsenha.pack(side=LEFT)
-
-        self.txtsenha = Entry(self.container7)
-        self.txtsenha["width"] = 25
-        self.txtsenha["show"] = "*"
-        self.txtsenha["font"] = self.fonte
-        self.txtsenha.pack(side=LEFT)
-
-        self.bntInsert = Button(self.container8, text="Inserir",
+        self.bntInsert = Button(self.container12, text="Inserir",
         font=self.fonte, width=12)
         self.bntInsert["command"] = self.inserircliente
         self.bntInsert.pack (side=LEFT)
 
-        self.bntAlterar = Button(self.container8, text="Alterar",
+        self.bntAlterar = Button(self.container12, text="Alterar",
         font=self.fonte, width=12)
         self.bntAlterar["command"] = self.alterarcliente
         self.bntAlterar.pack (side=LEFT)
 
-        self.bntExcluir = Button(self.container8, text="Excluir",
+        self.bntExcluir = Button(self.container12, text="Excluir",
         font=self.fonte, width=12)
         self.bntExcluir["command"] = self.excluircliente
         self.bntExcluir.pack(side=LEFT)
 
-        self.lblmsg = Label(self.container9, text="")
+        self.lblmsg = Label(self.container13, text="")
         self.lblmsg["font"] = ("Verdana", "9", "italic")
         self.lblmsg.pack()
 
@@ -128,20 +188,31 @@ class Application:
     def inserircliente(self):
         user = clientes()
 
+        user.cnpjcpf = self.txtcnpjcpf.get()
         user.nome = self.txtnome.get()
+        user.cep = self.txtcep.get()
+        user.endereco = self.txtendereco.get()
+        user.numero = self.txtnumero.get()
+        user.bairro = self.txtbairro.get()
+        user.cidade = self.txtcidade.get()
+        user.estado = self.txtestado.get()
         user.telefone = self.txttelefone.get()
         user.email = self.txtemail.get()
-        user.cliente = self.txtcliente.get()
-        user.senha = self.txtsenha.get()
+
 
         self.lblmsg["text"] = user.insertUser()
 
-        self.txtidcliente.delete(0, END)
+        self.txtcnpjcpf.delete(0, END)
         self.txtnome.delete(0, END)
+        self.txtcep.delete(0, END)
+        self.txtendereco.delete(0, END)
+        self.txtnumero.delete(0, END)
+        self.txtbairro.delete(0, END)
+        self.txtcidade.delete(0, END)
+        self.txtestado.delete(0, END)
         self.txttelefone.delete(0, END)
         self.txtemail.delete(0, END)
-        self.txtcliente.delete(0, END)
-        self.txtsenha.delete(0, END)
+
 
 
 
