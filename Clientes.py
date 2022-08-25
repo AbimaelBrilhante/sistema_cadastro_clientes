@@ -8,7 +8,7 @@ class clientes(object):
                  numero = "",bairro = "",cidade="",estado = "", telefone = "",
     email = ""):
       self.info = {}
-      self.cnpjcpf = cnpjcpf
+      self.cnpjcpf = str(cnpjcpf)
       self.nome = nome
       self.cep = cep
       self.endereco = endereco
@@ -65,7 +65,7 @@ class clientes(object):
 
           c = banco.conexao.cursor()
 
-          c.execute("delete from clientes where cnpjcpf = " + self.cnpjcpf + " ")
+          c.execute("delete from clientes where cnpjcpf = " + str(self.cnpjcpf) + " ")
 
           banco.conexao.commit()
           c.close()
@@ -80,10 +80,10 @@ class clientes(object):
 
           c = banco.conexao.cursor()
 
-          c.execute("select * from clientes where cnpjcpf = " + cnpjcpf + "  ")
+          c.execute("select * from clientes where cnpjcpf = " + str(cnpjcpf) + "  ")
 
           for linha in c:
-              self.cnpjcpf = linha[0]
+              self.cnpjcpf = str(linha[0])
               self.nome = linha[1]
               self.cep = linha[2]
               self.endereco = linha[3]

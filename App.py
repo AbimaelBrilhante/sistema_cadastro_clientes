@@ -10,7 +10,7 @@ class Application:
         self.container1["pady"] = 10
         self.container1.pack()
         self.container2 = Frame(master)
-        self.container2["padx"] = 20
+        self.container2["padx"] = 100
         self.container2["pady"] = 5
         self.container2.pack()
         self.container3 = Frame(master)
@@ -22,7 +22,7 @@ class Application:
         self.container4["pady"] = 5
         self.container4.pack()
         self.container5 = Frame(master)
-        self.container5["padx"] = 20
+        self.container5["padx"] = 100
         self.container5["pady"] = 5
         self.container5.pack()
         self.container6 = Frame(master)
@@ -74,7 +74,7 @@ class Application:
         self.lblcnpjcpf.pack(side=LEFT)
 
         self.txtcnpjcpf = Entry(self.container2)
-        self.txtcnpjcpf["width"] = 10
+        self.txtcnpjcpf["width"] = 18
         self.txtcnpjcpf["font"] = self.fonte
         self.txtcnpjcpf.pack(side=LEFT)
 
@@ -88,7 +88,7 @@ class Application:
         self.lblnome.pack(side=LEFT)
 
         self.txtnome = Entry(self.container3)
-        self.txtnome["width"] = 25
+        self.txtnome["width"] = 30
         self.txtnome["font"] = self.fonte
         self.txtnome.pack(side=LEFT)
 
@@ -97,7 +97,7 @@ class Application:
         self.lblcep.pack(side=LEFT)
 
         self.txtcep = Entry(self.container4)
-        self.txtcep["width"] = 25
+        self.txtcep["width"] = 30
         self.txtcep["font"] = self.fonte
         self.txtcep.pack(side=LEFT)
 
@@ -106,16 +106,16 @@ class Application:
         self.lblendereco.pack(side=LEFT)
 
         self.txtendereco = Entry(self.container5)
-        self.txtendereco["width"] = 25
+        self.txtendereco["width"] = 14
         self.txtendereco["font"] = self.fonte
         self.txtendereco.pack(side=LEFT)
 
-        self.lblnumero = Label(self.container6, text="Numero:",
+        self.lblnumero = Label(self.container5, text="Nº:",
         font=self.fonte, width=10)
         self.lblnumero.pack(side=LEFT)
 
-        self.txtnumero = Entry(self.container6)
-        self.txtnumero["width"] = 25
+        self.txtnumero = Entry(self.container5)
+        self.txtnumero["width"] = 5
         self.txtnumero["font"] = self.fonte
         self.txtnumero.pack(side=LEFT)
 
@@ -124,7 +124,7 @@ class Application:
         self.lblbairro.pack(side=LEFT)
 
         self.txtbairro = Entry(self.container7)
-        self.txtbairro["width"] = 25
+        self.txtbairro["width"] = 30
         self.txtbairro["font"] = self.fonte
         self.txtbairro.pack(side=LEFT)
 
@@ -133,16 +133,16 @@ class Application:
         self.lblcidade.pack(side=LEFT)
 
         self.txtcidade = Entry(self.container8)
-        self.txtcidade["width"] = 25
+        self.txtcidade["width"] = 14
         self.txtcidade["font"] = self.fonte
         self.txtcidade.pack(side=LEFT)
 
-        self.lblestado = Label(self.container9, text="UF:",
+        self.lblestado = Label(self.container8, text="UF:",
         font=self.fonte, width=10)
         self.lblestado.pack(side=LEFT)
 
-        self.txtestado = Entry(self.container9)
-        self.txtestado["width"] = 25
+        self.txtestado = Entry(self.container8)
+        self.txtestado["width"] = 5
         self.txtestado["font"] = self.fonte
         self.txtestado.pack(side=LEFT)
 
@@ -152,7 +152,7 @@ class Application:
         self.lbltelefone.pack(side=LEFT)
 
         self.txttelefone = Entry(self.container10)
-        self.txttelefone["width"] = 25
+        self.txttelefone["width"] = 30
         self.txttelefone["font"] = self.fonte
         self.txttelefone.pack(side=LEFT)
 
@@ -161,7 +161,7 @@ class Application:
         self.lblemail.pack(side=LEFT)
 
         self.txtemail = Entry(self.container11)
-        self.txtemail["width"] = 25
+        self.txtemail["width"] = 30
         self.txtemail["font"] = self.fonte
         self.txtemail.pack(side=LEFT)
 
@@ -219,51 +219,79 @@ class Application:
     def alterarcliente(self):
         user = clientes()
 
-        user.idcliente = self.txtidcliente.get()
+        user.cnpjcpf = self.txtcnpjcpf.get()
         user.nome = self.txtnome.get()
+        user.cep = self.txtcep.get()
+        user.endereco = self.txtendereco.get()
+        user.numero = self.txtnumero.get()
+        user.bairro = self.txtbairro.get()
+        user.cidade = self.txtcidade.get()
+        user.estado = self.txtestado.get()
         user.telefone = self.txttelefone.get()
         user.email = self.txtemail.get()
-        user.cliente = self.txtcliente.get()
-        user.senha = self.txtsenha.get()
 
         self.lblmsg["text"] = user.updateUser()
 
-        self.txtidcliente.delete(0, END)
+        self.txtcnpjcpf.delete(0, END)
         self.txtnome.delete(0, END)
+        self.txtcep.delete(0, END)
+        self.txtendereco.delete(0, END)
+        self.txtnumero.delete(0, END)
+        self.txtbairro.delete(0, END)
+        self.txtcidade.delete(0, END)
+        self.txtestado.delete(0, END)
         self.txttelefone.delete(0, END)
         self.txtemail.delete(0, END)
-        self.txtcliente.delete(0, END)
-        self.txtsenha.delete(0, END)
 
 
 
     def excluircliente(self):
         user = clientes()
 
-        user.idcliente = self.txtidcliente.get()
+        user.idcliente = self.txtcnpjcpf.get()
 
         self.lblmsg["text"] = user.deleteUser()
 
-        self.txtidcliente.delete(0, END)
+        self.txtcnpjcpf.delete(0, END)
         self.txtnome.delete(0, END)
+        self.txtcep.delete(0, END)
+        self.txtendereco.delete(0, END)
+        self.txtnumero.delete(0, END)
+        self.txtbairro.delete(0, END)
+        self.txtcidade.delete(0, END)
+        self.txtestado.delete(0, END)
         self.txttelefone.delete(0, END)
         self.txtemail.delete(0, END)
-        self.txtcliente.delete(0, END)
-        self.txtsenha.delete(0, END)
 
 
     def buscarcliente(self):
         user = clientes()
 
-        idcliente = self.txtidcliente.get()
+        cnpjcpf = (self.txtcnpjcpf.get())
 
-        self.lblmsg["text"] = user.selectUser(idcliente)
+        self.lblmsg["text"] = user.selectUser(cnpjcpf)
 
-        self.txtidcliente.delete(0, END)
-        self.txtidcliente.insert(INSERT, user.idcliente)
+        self.txtcnpjcpf.delete(0, END)
+        self.txtcnpjcpf.insert(INSERT, cnpjcpf)
+        print(cnpjcpf)
 
         self.txtnome.delete(0, END)
         self.txtnome.insert(INSERT, user.nome)
+
+        self.txtcep.delete(0, END)
+        self.txtcep.insert(INSERT, user.cep)
+
+        self.txtendereco.delete(0, END)
+        self.txtendereco.insert(INSERT,user.endereco)
+
+        self.txtbairro.delete(0, END)
+        self.txtbairro.insert(INSERT, user.bairro)
+
+        self.txtcidade.delete(0, END)
+        self.txtcidade.insert(INSERT,user.cidade)
+
+        self.txtestado.delete(0, END)
+        self.txtestado.insert(INSERT,user.estado)
 
         self.txttelefone.delete(0, END)
         self.txttelefone.insert(INSERT,user.telefone)
@@ -271,11 +299,7 @@ class Application:
         self.txtemail.delete(0, END)
         self.txtemail.insert(INSERT, user.email)
 
-        self.txtcliente.delete(0, END)
-        self.txtcliente.insert(INSERT, user.cliente)
 
-        self.txtsenha.delete(0, END)
-        self.txtsenha.insert(INSERT,user.senha)
 
 
 
