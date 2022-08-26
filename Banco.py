@@ -15,6 +15,7 @@ class Banco():
                      cep text,
                      endereco text,
                      numero integer,
+                     complemento text,
                      bairro text,
                      cidade text,
                      estado text,

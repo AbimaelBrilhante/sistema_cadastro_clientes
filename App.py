@@ -114,8 +114,17 @@ class Application:
         font=self.fonte, width=10)
         self.lblnumero.pack(side=LEFT)
 
-        self.txtnumero = Entry(self.container5)
-        self.txtnumero["width"] = 5
+        self.txtcomplemento = Entry(self.container5)
+        self.txtcomplemento["width"] = 5
+        self.txtcomplemento["font"] = self.fonte
+        self.txtcomplemento.pack(side=LEFT)
+
+        self.lblcomplemento = Label(self.container6, text="Complemento:",
+        font=self.fonte, width=10)
+        self.lblcomplemento.pack(side=LEFT)
+
+        self.txtnumero = Entry(self.container6)
+        self.txtnumero["width"] = 30
         self.txtnumero["font"] = self.fonte
         self.txtnumero.pack(side=LEFT)
 
@@ -193,6 +202,7 @@ class Application:
         user.cep = self.txtcep.get()
         user.endereco = self.txtendereco.get()
         user.numero = self.txtnumero.get()
+        user.complemento = self.txtcomplemento.get()
         user.bairro = self.txtbairro.get()
         user.cidade = self.txtcidade.get()
         user.estado = self.txtestado.get()
@@ -207,6 +217,7 @@ class Application:
         self.txtcep.delete(0, END)
         self.txtendereco.delete(0, END)
         self.txtnumero.delete(0, END)
+        self.txtcomplemento.delete(0, END)
         self.txtbairro.delete(0, END)
         self.txtcidade.delete(0, END)
         self.txtestado.delete(0, END)
@@ -224,6 +235,7 @@ class Application:
         user.cep = self.txtcep.get()
         user.endereco = self.txtendereco.get()
         user.numero = self.txtnumero.get()
+        user.complemento = self.txtcomplemento.get()
         user.bairro = self.txtbairro.get()
         user.cidade = self.txtcidade.get()
         user.estado = self.txtestado.get()
@@ -237,6 +249,7 @@ class Application:
         self.txtcep.delete(0, END)
         self.txtendereco.delete(0, END)
         self.txtnumero.delete(0, END)
+        self.txtcomplemento.delete(0, END)
         self.txtbairro.delete(0, END)
         self.txtcidade.delete(0, END)
         self.txtestado.delete(0, END)
@@ -257,6 +270,7 @@ class Application:
         self.txtcep.delete(0, END)
         self.txtendereco.delete(0, END)
         self.txtnumero.delete(0, END)
+        self.txtcomplemento.delete(0, END)
         self.txtbairro.delete(0, END)
         self.txtcidade.delete(0, END)
         self.txtestado.delete(0, END)
@@ -272,8 +286,7 @@ class Application:
         self.lblmsg["text"] = user.selectUser(cnpjcpf)
 
         self.txtcnpjcpf.delete(0, END)
-        self.txtcnpjcpf.insert(INSERT, cnpjcpf)
-        print(cnpjcpf)
+        self.txtcnpjcpf.insert(INSERT, user.cnpjcpf)
 
         self.txtnome.delete(0, END)
         self.txtnome.insert(INSERT, user.nome)
@@ -283,6 +296,12 @@ class Application:
 
         self.txtendereco.delete(0, END)
         self.txtendereco.insert(INSERT,user.endereco)
+
+        self.txtnumero.delete(0, END)
+        self.txtnumero.insert(INSERT,user.numero)
+
+        self.txtcomplemento.delete(0, END)
+        self.txtcomplemento.insert(INSERT,user.complemento)
 
         self.txtbairro.delete(0, END)
         self.txtbairro.insert(INSERT, user.bairro)
